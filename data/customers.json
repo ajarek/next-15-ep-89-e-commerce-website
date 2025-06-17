@@ -1,0 +1,40 @@
+
+    [
+      {
+        "id": "1",
+        "name": "Sarah Bush.",
+        "rating": "⭐⭐⭐⭐⭐",
+        "description": "I am very pleased with the quality of the products and the fast delivery. I recommend! From casual wear to elegant dresses, every price level is covered."
+      },
+      {
+        "id": "2",
+        "name": "Alex Roberts",
+        "rating": "⭐⭐⭐⭐",
+        "description": "Great customer service and competitive prices. I will definitely come back for more shopping. Thank you! The variety of products is also impressive."
+      },
+      {
+        "id": "3",
+        "name": "Jessica Moore",
+        "rating": "⭐⭐⭐⭐⭐",
+        "description": "Products as described, and the ordering process was very simple and intuitive.  I especially appreciate the detailed product descriptions."
+      },
+      {
+        "id": "4",
+        "name": "John Smith",
+        "rating": "⭐⭐⭐⭐⭐",
+        "description": "Amazing quality and attention to detail. I am impressed! This has quickly become my go-to store for fashion."
+      },
+      {
+        "id": "5",
+        "name": "John Doe",
+        "rating": "⭐⭐⭐⭐",
+        "description": "Good value for money. The shipment arrived on time. I'm happy with my purchase and the overall experience."
+      },
+      {
+        "id": "6",
+        "name": "Jane Doe",
+        "rating": "⭐⭐⭐⭐⭐",
+        "description": "Professional approach and excellent contact. I definitely recommend this store! It's clear they care about their customers."
+      }
+    ]
+  

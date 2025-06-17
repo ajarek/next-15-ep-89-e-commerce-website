@@ -43,7 +43,7 @@ const TopSelling = () => {
           </div>
           <Link
             href='/shop'
-            className='text-background   bg-primary hover:bg-primary/80 transition-all duration-200  w-[210px] max-lg:w-full h-[52px] flex items-center justify-center gap-2 rounded-full'
+            className='text-background   bg-primary hover:bg-primary/80 transition-all duration-200  w-[210px] max-lg:w-[150px] h-[52px] max-lg:h-[42px] flex items-center justify-center gap-2 rounded-full'
           >
             View All
           </Link>
