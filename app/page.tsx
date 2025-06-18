@@ -4,7 +4,6 @@ import Mark from '@/components/Mark'
 import NewArrivals from '@/components/NewArrivals'
 import TopSelling from '@/components/TopSelling'
 import Customers from '@/components/Customers'
-import Offer from '@/components/Offer'
 
 export default function Home() {
   return (
@@ -15,8 +14,6 @@ export default function Home() {
       <TopSelling />
       <BrowseStyle />
       <Customers />
-      <Offer />
-      
     </div>
   )
 }

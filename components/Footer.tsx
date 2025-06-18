@@ -1,5 +1,7 @@
+import { Twitter,Facebook,Instagram,Github } from 'lucide-react'
 import Link from 'next/link'
 import { Separator } from '@/components/ui/separator'
+import Image from 'next/image'
 
 const Footer = () => {
   return (
@@ -13,6 +15,36 @@ const Footer = () => {
               We have clothes that suits your style and which you&apos;re proud
               to wear. From women to men.
             </p>
+            <div className='flex items-center gap-4' >
+              <Link
+                href='https://x.com'
+                className=''
+                 target='_blank'
+              >
+                <Twitter />
+              </Link> 
+              <Link
+                href='https://www.facebook.com'
+                className=''
+                 target='_blank'
+              >
+                <Facebook />
+              </Link> 
+              <Link
+                href='https://www.instagram.com/'
+                className=''
+                 target='_blank'
+              >
+                <Instagram />
+              </Link> 
+              <Link
+                href='https://github.com/'
+                className=''
+                target='_blank'
+              >
+                <Github />
+              </Link> 
+            </div>
           </div>
 
           {/* Company */}
@@ -137,25 +169,49 @@ const Footer = () => {
 
         <div className='flex flex-col md:flex-row justify-between items-center gap-4'>
           <p className='text-sm text-gray-600 dark:text-gray-400'>
-            Shop.co © 2000-2025, All Rights Reserved
+            Shop.co © 2025, All Rights Reserved
           </p>
 
           <div className='flex items-center gap-4'>
             <Link href='#'>
-              <span className='sr-only'>VISA</span>
-              <span className='text-sm font-bold'>VISA</span>
+              <Image
+                src={'/images/visa.png'}
+                alt={'visa'}
+                width={50}
+                height={50}
+              />
             </Link>
             <Link href='#'>
-              <span className='sr-only'>PayPal</span>
-              <span className='text-sm font-bold'>PayPal</span>
+               <Image
+                src={'/images/mastercard.png'}
+                alt={'mastercard'}
+                width={50}
+                height={50}
+              />
             </Link>
             <Link href='#'>
-              <span className='sr-only'>Blog</span>
-              <span className='text-sm font-bold'>Blog</span>
+               <Image
+                src={'/images/paypal.png'}
+                alt={'paypal'}
+                width={50}
+                height={50}
+              />
             </Link>
             <Link href='#'>
-              <span className='sr-only'>G Pay</span>
-              <span className='text-sm font-bold'>G Pay</span>
+             <Image
+                src={'/images/pay.png'}
+                alt={'pay'}
+                width={50}
+                height={50}
+              />
+            </Link>
+            <Link href='#'>
+             <Image
+                src={'/images/google-pay.png'}
+                alt={'google-pay'}
+                width={50}
+                height={50}
+              />
             </Link>
           </div>
         </div>
