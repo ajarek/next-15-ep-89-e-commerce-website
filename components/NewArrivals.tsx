@@ -22,23 +22,25 @@ const NewArrivals = () => {
       >
         {data.map((item) => (
           <Card key={item.id}>
-            <CardHeader className='flex justify-center'>
-              <Image
-                src={item.image}
-                alt={item.name}
-                width={295}
-                height={298}
-                className='rounded-2xl '
-              />
-            </CardHeader>
-            <CardContent>
-              <CardTitle>{item.name}</CardTitle>
-              <CardDescription>{item.ranking}</CardDescription>
-              <div className='flex items-center gap-4 text-xl '>
-                <p className='font-bold '>${item.discount}</p>
-                <p className='line-through'>${item.price}</p>
-              </div>
-            </CardContent>
+            <Link href={`/product/${item.id}`}>
+              <CardHeader className='flex justify-center'>
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  width={295}
+                  height={298}
+                  className='rounded-2xl '
+                />
+              </CardHeader>
+              <CardContent>
+                <CardTitle>{item.name}</CardTitle>
+                <CardDescription>{item.ranking}</CardDescription>
+                <div className='flex items-center gap-4 text-xl '>
+                  <p className='font-bold '>${item.discount}</p>
+                  <p className='line-through'>${item.price}</p>
+                </div>
+              </CardContent>
+            </Link>
           </Card>
         ))}
       </div>
