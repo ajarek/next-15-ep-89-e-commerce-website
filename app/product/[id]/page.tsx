@@ -3,6 +3,7 @@ import dataNewArrivals from '@/data/newArrivals.json'
 import dataTopSelling from '@/data/topSelling.json'
 import Image from 'next/image'
 import SelectColor from '@/components/SelectColor'
+import SelectSize from '@/components/SelectSize'
 
 type Product = (typeof dataNewArrivals)[0]
 
@@ -30,11 +31,12 @@ const ProductDetail = ({ params }: { params: { id: string } }) => {
           <div className='flex items-center gap-4 text-2xl '>
             <p className=' font-bold'>${product.discount}</p>
             <p className='line-through'>${product.price}</p>
-            <p className='text-xl text-red-500 px-4 py-1 bg-red-200 rounded-full'>-{(100-(+product.discount/+product.price)*100).toFixed(0)}%</p>
+            <p className='text-lg text-red-500 px-4 py-0 bg-red-200 rounded-full'>-{(100-(+product.discount/+product.price)*100).toFixed(0)}%</p>
             
           </div>
           <p>Category: {product.category}</p>
         <SelectColor/>
+        <SelectSize/>
         </div>
       </div>
     </div>
