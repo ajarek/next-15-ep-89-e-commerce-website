@@ -15,9 +15,9 @@ const SelectSize = () => {
           className=''
         >
           <span
-            className={` w-20 h-8 flex items-center justify-center  text-center rounded-full ${
+            className={` w-20 h-8 flex items-center justify-center  text-center rounded-full cursor-pointer ${
               size === 'Small'
-                ? 'bg-primary text-background'
+                ? 'bg-destructive text-background'
                 : 'bg-gray-200 text-black'
             }`}
           >
@@ -38,9 +38,9 @@ const SelectSize = () => {
           className=''
         >
           <span
-            className={` w-20 h-8 flex items-center justify-center  text-center rounded-full ${
+            className={` w-20 h-8 flex items-center justify-center  text-center rounded-full cursor-pointer ${
               size === 'Medium'
-                ? 'bg-primary text-background'
+                ? 'bg-destructive text-background'
                 : 'bg-gray-200 text-black'
             }`}
           >
@@ -61,9 +61,9 @@ const SelectSize = () => {
           className=''
         >
           <span
-            className={` w-20 h-8 flex items-center justify-center  text-center rounded-full ${
+            className={` w-20 h-8 flex items-center justify-center  text-center rounded-full cursor-pointer ${
               size === 'Large'
-                ? 'bg-primary text-background'
+                ? 'bg-destructive text-background'
                 : 'bg-gray-200 text-black'
             }`}
           >
@@ -84,9 +84,9 @@ const SelectSize = () => {
           className=''
         >
           <span
-            className={` w-20 h-8 flex items-center justify-center  text-center rounded-full ${
+            className={` w-20 h-8 flex items-center justify-center  text-center rounded-full cursor-pointer ${
               size === 'X-Large'
-                ? 'bg-primary text-background'
+                ? 'bg-destructive text-background'
                 : 'bg-gray-200 text-black'
             }`}
           >

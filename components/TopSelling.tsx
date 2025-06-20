@@ -21,7 +21,7 @@ const TopSelling = () => {
       >
         {data.map((item) => (
           <Card key={item.id}>
-            <Link href={`/product/${item.id}`}>
+            <Link href={`/product?id={item.id}`}>
               <CardHeader className='flex justify-center'>
                 <Image
                   src={item.image}
