@@ -3,9 +3,46 @@ import React from 'react'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
 import { Check } from 'lucide-react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+
+interface SearchProps {
+  query: string
+}
 const check = <Check />
-const SelectColor = () => {
-  const [color, setColor] = React.useState('')
+
+
+
+const SelectColor = ({ query }: SearchProps) => {
+  const searchParams = useSearchParams()
+  const { replace } = useRouter()
+  const pathname = usePathname()
+  const [color, setColor] = React.useState<string | null>('')
+
+   React.useEffect(() => {
+    setColor(searchParams.get(query) || null)
+  }, [searchParams, query])
+
+  const handleSearch = (term: string) => {
+    const params = new URLSearchParams(searchParams)
+
+    if (term) {
+      params.set(`${query}`, term)
+    } else {
+      params.delete(`${query}`)
+    }
+    try {
+      replace(`${pathname}?${params.toString()}`)
+    } catch (error) {
+      console.error('Failed to replace URL parameters:', error)
+    }
+    setColor(term)
+  }
+
+
+
+
+
+
   return (
     <div className='flex flex-col items-start justify-start gap-2'>
       <h1>Select Color</h1>
@@ -26,6 +63,7 @@ const SelectColor = () => {
             className='hidden'
             value='red'
             onChange={() => setColor('red')}
+            onClick={() => handleSearch('red')}
           />
         </Label>
         <Label
@@ -44,6 +82,7 @@ const SelectColor = () => {
             className='hidden'
             value='blue'
             onChange={() => setColor('blue')}
+            onClick={() => handleSearch('blue')}
           />
         </Label>
 
@@ -63,6 +102,7 @@ const SelectColor = () => {
             className='hidden'
             value='green'
             onChange={() => setColor('green')}
+            onClick={() => handleSearch('green')}
           />
         </Label>
       </div>

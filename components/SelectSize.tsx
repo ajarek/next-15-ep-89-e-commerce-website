@@ -2,14 +2,43 @@
 import React from 'react'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
-const SelectSize = () => {
-  const [size, setSize] = React.useState('')
+interface SearchProps {
+  query: string
+}
+
+const SelectSize = ({ query }: SearchProps) => {
+  const searchParams = useSearchParams()
+  const { replace } = useRouter()
+  const pathname = usePathname()
+  const [size, setSize] = React.useState<string | null>('')
+
+  React.useEffect(() => {
+      setSize(searchParams.get(query) || null)
+    }, [searchParams, query])
+  
+    const handleSearch = (term: string) => {
+      const params = new URLSearchParams(searchParams)
+  
+      if (term) {
+        params.set(`${query}`, term)
+      } else {
+        params.delete(`${query}`)
+      }
+      try {
+        replace(`${pathname}?${params.toString()}`)
+      } catch (error) {
+        console.error('Failed to replace URL parameters:', error)
+      }
+      setSize(term)
+    }
+  
 
   return (
     <div className='flex flex-col items-start justify-start gap-2'>
       <h1>Choose Size</h1>
-      <div className='flex items-center gap-4'>
+      <div className='flex flex-wrap items-center gap-4'>
         <Label
           htmlFor='small'
           className=''
@@ -31,6 +60,7 @@ const SelectSize = () => {
             className='hidden'
             value='Small'
             onChange={() => setSize('Small')}
+            onClick={() => handleSearch('Small')}
           />
         </Label>
         <Label
@@ -54,6 +84,7 @@ const SelectSize = () => {
             className='hidden'
             value='Medium'
             onChange={() => setSize('Medium')}
+            onClick={() => handleSearch('Medium')}
           />
         </Label>
         <Label
@@ -77,6 +108,7 @@ const SelectSize = () => {
             className='hidden'
             value='large'
             onChange={() => setSize('Large')}
+            onClick={() => handleSearch('Large')}
           />
         </Label>
         <Label
@@ -100,6 +132,7 @@ const SelectSize = () => {
             className='hidden'
             value='x-large'
             onChange={() => setSize('X-Large')}
+            onClick={() => handleSearch('X-Large')}
           />
         </Label>
       </div>

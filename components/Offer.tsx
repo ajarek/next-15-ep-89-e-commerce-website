@@ -8,7 +8,7 @@ import { toast } from "sonner"
 const Offer = () => {
   const [email, setEmail] = React.useState('')
   return (
-    <div className='w-full flex justify-center px-16'>
+    <div className='w-full flex justify-center px-16 max-lg:px-4'>
       <div className='w-full grid grid-cols-[2fr_1fr] max-lg:grid-cols-1 gap-4 bg-foreground text-background  p-12  rounded-2xl'>
         <h1 className='   text-4xl font-extrabold uppercase'>
           Stay upto date about <br/> our latest offers

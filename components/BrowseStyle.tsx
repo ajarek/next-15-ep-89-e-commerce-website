@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const BrowseStyle = () => {
   return (
-    <div className='w-full flex flex-col items-center justify-start gap-4 px-16'>
+    <div className='w-full flex flex-col items-center justify-start gap-4 px-16 max-lg:px-4'>
       <h1 className='w-full text-center text-3xl font-bold uppercase'>
         Browse by dress style
       </h1>
