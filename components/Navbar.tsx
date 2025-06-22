@@ -4,6 +4,7 @@ import { Input } from './ui/input'
 import { Search, ShoppingCart, User } from 'lucide-react'
 import MobileNav from './MobileNav'
 import { ModeToggle } from './ModeToggle'
+import LengthCart from './LengthCart'
 
 const components: { title: string; href: string }[] = [
   {
@@ -63,10 +64,14 @@ const Navbar = () => {
             href='/cart'
             className='relative w-fit flex items-center justify-center text-red-500`'
           >
-            <ShoppingCart size={24} />
-            <span className='absolute -top-1 -right-1  text-xs bg-red-600 text-white rounded-full w-4 h-4 flex items-center justify-center'>
-              0
-            </span>
+           <div className='relative  '>
+                  <ShoppingCart
+                    size={26}
+                    strokeWidth={1}
+                    aria-label='Cart'
+                  />
+                  <LengthCart />
+                </div>
           </Link>
           <Link href='/register'>
             <User size={24} />
