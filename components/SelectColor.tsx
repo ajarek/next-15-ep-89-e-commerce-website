@@ -10,15 +10,13 @@ interface SearchProps {
 }
 const check = <Check />
 
-
-
 const SelectColor = ({ query }: SearchProps) => {
   const searchParams = useSearchParams()
   const { replace } = useRouter()
   const pathname = usePathname()
   const [color, setColor] = React.useState<string | null>('')
 
-   React.useEffect(() => {
+  React.useEffect(() => {
     setColor(searchParams.get(query) || null)
   }, [searchParams, query])
 
@@ -37,11 +35,6 @@ const SelectColor = ({ query }: SearchProps) => {
     }
     setColor(term)
   }
-
-
-
-
-
 
   return (
     <div className='flex flex-col items-start justify-start gap-2'>
