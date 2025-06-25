@@ -1,12 +1,14 @@
 import React from 'react'
 import dataNewArrivals from '@/data/newArrivals.json'
 import dataTopSelling from '@/data/topSelling.json'
+import dataOther from '@/data/other.json'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Image from 'next/image'
 import Link from 'next/link'
 
+
 const Shop = () => {
-  const allProducts = [...dataNewArrivals, ...dataTopSelling]
+  const allProducts = [...dataNewArrivals, ...dataTopSelling, ...dataOther]
   return (
     <div className='w-full min-h-screen flex flex-col items-center justify-start py-4 gap-4 px-16 max-lg:px-4  '>
       <h1 className='w-full text-2xl text-links font-semibold'>Casual</h1>

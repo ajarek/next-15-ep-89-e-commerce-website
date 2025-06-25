@@ -1,9 +1,16 @@
-import { Twitter,Facebook,Instagram,Github } from 'lucide-react'
+'use client'
+import { Twitter, Facebook, Instagram, Github } from 'lucide-react'
 import Link from 'next/link'
 import { Separator } from '@/components/ui/separator'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 const Footer = () => {
+  const pathname = usePathname()
+  const hideOn = ['/shop']
+  if (hideOn.includes(pathname)) {
+    return null
+  }
   return (
     <footer className='w-full flex flex-col items-center justify-start px-16 max-lg:px-4 border-t'>
       <div className='container mx-auto px-4 py-12'>
@@ -15,35 +22,35 @@ const Footer = () => {
               We have clothes that suits your style and which you&apos;re proud
               to wear. From women to men.
             </p>
-            <div className='flex items-center gap-4' >
+            <div className='flex items-center gap-4'>
               <Link
                 href='https://x.com'
                 className=''
-                 target='_blank'
+                target='_blank'
               >
                 <Twitter />
-              </Link> 
+              </Link>
               <Link
                 href='https://www.facebook.com'
                 className=''
-                 target='_blank'
+                target='_blank'
               >
                 <Facebook />
-              </Link> 
+              </Link>
               <Link
                 href='https://www.instagram.com/'
                 className=''
-                 target='_blank'
+                target='_blank'
               >
                 <Instagram />
-              </Link> 
+              </Link>
               <Link
                 href='https://github.com/'
                 className=''
                 target='_blank'
               >
                 <Github />
-              </Link> 
+              </Link>
             </div>
           </div>
 
@@ -182,7 +189,7 @@ const Footer = () => {
               />
             </Link>
             <Link href='#'>
-               <Image
+              <Image
                 src={'/images/mastercard.png'}
                 alt={'mastercard'}
                 width={50}
@@ -190,7 +197,7 @@ const Footer = () => {
               />
             </Link>
             <Link href='#'>
-               <Image
+              <Image
                 src={'/images/paypal.png'}
                 alt={'paypal'}
                 width={50}
@@ -198,7 +205,7 @@ const Footer = () => {
               />
             </Link>
             <Link href='#'>
-             <Image
+              <Image
                 src={'/images/pay.png'}
                 alt={'pay'}
                 width={50}
@@ -206,7 +213,7 @@ const Footer = () => {
               />
             </Link>
             <Link href='#'>
-             <Image
+              <Image
                 src={'/images/google-pay.png'}
                 alt={'google-pay'}
                 width={50}

@@ -1,0 +1,29 @@
+[
+  {
+    "id": 9,
+    "name": "Gradient Graphic T-shirt",
+    "image": "/images/gradient-graphic-t-shirt.png",
+    "price": "224.00",
+    "discount": "145.00",
+    "ranking":"⭐⭐⭐⭐",
+    "category": "Men"
+  },
+  {
+    "id": 10,
+    "name": "Polo With Tipping Details",
+    "image": "/images/polo-with-tipping-details.png",
+    "price": "224.00",
+    "discount": "180.00",
+    "ranking":"⭐⭐⭐⭐",
+    "category": "Men"
+  },
+  {
+    "id": 11,
+    "name": "Black Striped T-shirt",
+    "image": "/images/black-striped-t-shirt.png",
+    "price": "224.00",
+    "discount": "120.00",
+    "ranking":"⭐⭐⭐⭐",
+    "category": "Men"
+  }
+]

@@ -4,9 +4,16 @@ import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { Mail } from 'lucide-react'
 import { toast } from "sonner"
+import { usePathname } from 'next/navigation';
 
 const Offer = () => {
   const [email, setEmail] = React.useState('')
+  const pathname = usePathname()
+  const hideOn = ['/shop'];
+
+  if (hideOn.includes(pathname)) {
+    return null;
+  }
   return (
     <div className='w-full flex justify-center px-16 max-lg:px-4'>
       <div className='w-full grid grid-cols-[2fr_1fr] max-lg:grid-cols-1 gap-4 bg-foreground text-background  p-12  rounded-2xl'>

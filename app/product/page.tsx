@@ -7,6 +7,7 @@ import SelectSize from '@/components/SelectSize'
 import SelectQuantity from '@/components/SelectQuantity'
 import ButtonAddCart from '@/components/ButtonAddCart'
 import type { Product } from '@/store/cartStore'
+import dataOther from '@/data/other.json'
 
 const ProductDetail = ({
   searchParams,
@@ -14,7 +15,7 @@ const ProductDetail = ({
   searchParams: Promise<{ id: string; quantity: string, color: string, size: string }>
 }) => {
   const { id, quantity, color, size } = use(searchParams)
-  const allProducts = [...dataNewArrivals, ...dataTopSelling]
+  const allProducts = [...dataNewArrivals, ...dataTopSelling, ...dataOther]
   const product = allProducts.find((item) => item.id === Number(id)) as Product
   return (
     <div className='w-full min-h-screen flex flex-col items-center justify-start py-4 gap-4 px-16 max-lg:px-4   '>

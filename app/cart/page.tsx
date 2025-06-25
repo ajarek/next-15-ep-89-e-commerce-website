@@ -100,7 +100,7 @@ const Cart = () => {
        :(
         <>
        <div className='text-red-500 text-2xl font-semibold'>Your cart is empty</div>
-       <Link  href='/' className='bg-primary text-background hover:bg-primary/80 transition-all duration-200 py-2 px-6 rounded-full'>Go to shop</Link>
+       <Link  href='/shop' className='bg-primary text-background hover:bg-primary/80 transition-all duration-200 py-2 px-6 rounded-full'>Go to shop</Link>
        </>
        )}
     </div>
