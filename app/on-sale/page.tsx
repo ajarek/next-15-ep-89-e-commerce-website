@@ -1,24 +1,18 @@
 import React from 'react'
-import dataNewArrivals from '@/data/newArrivals.json'
-import dataTopSelling from '@/data/topSelling.json'
 import dataOther from '@/data/other.json'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Image from 'next/image'
 import Link from 'next/link'
 
 
-const Shop = async ({ searchParams,}: {  searchParams: Promise<{ category: string, price: string, color: string, size: string }>}) => {
-  const allProducts = [...dataNewArrivals, ...dataTopSelling, ...dataOther]
-  const { category, price, color, size } = (await searchParams) || {}
+const OnSale = async () => {
+  const allProducts = [ ...dataOther]
+ 
   return (
     <div className='w-full min-h-screen flex flex-col items-center justify-start py-4 gap-4 px-16 max-lg:px-4  '>
-      <h1 className='w-full text-2xl text-links font-semibold'>Casual</h1>
+      <h1 className='w-full text-2xl text-links font-semibold'>On Sale</h1>
       <div className='w-full grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-4 place-items-center '>
         {allProducts
-          .filter((item) => category ? item.category === category : true)
-          .filter((item) => price ? Number(item.price) <= Number(price) : true)
-          .filter((item) => color ? item.color === color : true)
-          .filter((item) => size ? item.size === size : true)
           .map((item) => (
           <Card key={item.id}>
                       <Link href={`/product?id=${item.id}`}>
@@ -47,4 +41,4 @@ const Shop = async ({ searchParams,}: {  searchParams: Promise<{ category: strin
   )
 }
 
-export default Shop
+export default OnSale

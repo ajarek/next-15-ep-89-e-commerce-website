@@ -4,18 +4,22 @@
     "name": "T-shirt with Tape Details",
     "image": "/images/t-shirt-with-tape-details.png",
     "price": "120.00",
-    "discount": "150.00",
+    "discount": "110.00",
     "ranking":"⭐⭐⭐⭐⭐",
-    "category": "Men"
+    "category": "t-shirts",
+    "color": "red",
+    "size": "Small"
   },
   {
     "id": 2,
     "name": "Skinny Fit Jeans",
     "image": "/images/skinny-fit-jeans.png",
-    "price": "240.00",
-    "discount": "225.00",
+    "price": "190.00",
+    "discount": "180.00",
     "ranking":"⭐⭐⭐",
-    "category": "Men"
+    "category": "jeans",
+    "color": "blue",
+    "size": "Medium"
   },
   {
     "id": 3,
@@ -24,7 +28,9 @@
     "price": "180.00",
     "discount": "170.00",
     "ranking":"⭐⭐⭐⭐",
-    "category": "Men"
+    "category": "shirts",
+    "color": "green",
+    "size": "Large"
   },
   {
     "id": 4,
@@ -33,5 +39,7 @@
     "price": "160.00",
     "discount": "130.00",
     "ranking":"⭐⭐⭐⭐",
-    "category": "Men"
+    "category": "shirts",
+    "color": "blue",
+    "size": "X-Large"
   }]

@@ -13,7 +13,7 @@ const components: { title: string; href: string }[] = [
   },
   {
     title: 'On Sale',
-    href: '#on-sale',
+    href: '/on-sale',
   },
   {
     title: 'New Arrivals',

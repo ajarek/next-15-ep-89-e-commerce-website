@@ -45,6 +45,10 @@ export function AppSidebar() {
             <Link href='/shop?category=jeans'>Jeans</Link>
             <ChevronRight />
           </div>
+          <div className='flex items-center justify-between'>
+            <Link href='/shop'>All</Link>
+            <ChevronRight />
+          </div>
         </SidebarGroup>
         <SidebarGroup>
           <div className='flex items-center justify-between'>

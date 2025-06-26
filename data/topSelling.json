@@ -3,10 +3,12 @@
     "id": 5,
     "name": "Vertical Striped Shirt",
     "image": "/images/vertical-striped-shirt.png",
-    "price": "232.00",
-    "discount": "212.00",
+    "price": "180.00",
+    "discount": "170.00",
     "ranking":"⭐⭐⭐⭐⭐",
-    "category": "Men"
+    "category": "t-shirts",
+    "color": "blue",
+    "size": "Small"
   },
   {
     "id": 6,
@@ -15,7 +17,9 @@
     "price": "165.00",
     "discount": "145.00",
     "ranking":"⭐⭐⭐",
-    "category": "Men"
+    "category": "t-shirts",
+    "color": "black",
+    "size": "Medium"  
   },
   {
     "id": 7,
@@ -24,14 +28,18 @@
     "price": "90.00",
     "discount": "80.00",
     "ranking":"⭐⭐⭐⭐",
-    "category": "Men"
+    "category": "shorts",
+    "color": "blue",
+    "size": "Large"
   },
   {
     "id": 8,
     "name": "Faded Skinny Jeans",
     "image": "/images/faded-skinny-jeans.png",
-    "price": "224.00",
+    "price": "190.00",
     "discount": "180.00",
     "ranking":"⭐⭐⭐⭐",
-    "category": "Men"
+    "category": "jeans",
+    "color": "blue",
+    "size": "X-Large"
   }]

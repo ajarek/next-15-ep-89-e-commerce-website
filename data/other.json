@@ -3,27 +3,44 @@
     "id": 9,
     "name": "Gradient Graphic T-shirt",
     "image": "/images/gradient-graphic-t-shirt.png",
-    "price": "224.00",
+    "price": "190.00",
     "discount": "145.00",
     "ranking":"⭐⭐⭐⭐",
-    "category": "Men"
+    "category": "t-shirts",
+    "color": "red",
+    "size": "Small"
   },
   {
     "id": 10,
     "name": "Polo With Tipping Details",
     "image": "/images/polo-with-tipping-details.png",
-    "price": "224.00",
+    "price": "190.00",
     "discount": "180.00",
     "ranking":"⭐⭐⭐⭐",
-    "category": "Men"
+    "category": "hoodie",
+    "color": "blue",
+    "size": "Medium"
   },
   {
     "id": 11,
     "name": "Black Striped T-shirt",
     "image": "/images/black-striped-t-shirt.png",
-    "price": "224.00",
+    "price": "160.00",
     "discount": "120.00",
     "ranking":"⭐⭐⭐⭐",
-    "category": "Men"
+    "category": "t-shirts",
+    "color": "black",
+    "size": "Large"
+  },
+  {
+    "id": 12,
+    "name": "Sleeve Striped T-shirt",
+    "image": "/images/sleeve-striped-t-shirt.png",
+    "price": "170.00",
+    "discount": "120.00",
+    "ranking":"⭐⭐⭐⭐",
+    "category": "t-shirts",
+    "color": "blue",
+    "size": "X-Large"
   }
 ]
