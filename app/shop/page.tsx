@@ -7,14 +7,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 
-const Shop = async ({ searchParams,}: {  searchParams: Promise<{ category: string, price: string, color: string, size: string }>}) => {
+const Shop = async ({ searchParams,}: {  searchParams: Promise<{ category: string, price: string, color: string, size: string, name: string }>}) => {
   const allProducts = [...dataNewArrivals, ...dataTopSelling, ...dataOther]
-  const { category, price, color, size } = (await searchParams) || {}
+  const { category, price, color, size, name } = (await searchParams) || {}
   return (
     <div className='w-full min-h-screen flex flex-col items-center justify-start py-4 gap-4 px-16 max-lg:px-4  '>
       <h1 className='w-full text-2xl text-links font-semibold'>Casual</h1>
-      <div className='w-full grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 gap-4 place-items-center '>
+      <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-8 max-lg:px-4 '>
         {allProducts
+          .filter((item) => name ? item.name.toLowerCase().includes(name.toLowerCase()) : true)
           .filter((item) => category ? item.category === category : true)
           .filter((item) => price ? Number(item.price) <= Number(price) : true)
           .filter((item) => color ? item.color === color : true)

@@ -1,17 +1,17 @@
 import React from 'react'
-import dataOther from '@/data/other.json'
+import newArrivals from '@/data/newArrivals.json'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Image from 'next/image'
 import Link from 'next/link'
 
 
-const OnSale = async () => {
-  const allProducts = [ ...dataOther]
+const NewArrivals = async () => {
+  const allProducts = [ ...newArrivals]
  
   return (
     <div className='w-full min-h-screen flex flex-col items-center justify-start py-4 gap-4 px-16 max-lg:px-4  '>
-      <h1 className='w-full text-2xl text-links font-semibold'>On Sale</h1>
-      <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-8 max-lg:px-4 '>
+      <h1 className='w-full text-2xl text-links font-semibold'>New Arrivals</h1>
+      <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-8 max-lg:px-4'>
         {allProducts
           .map((item) => (
           <Card key={item.id}>
@@ -41,4 +41,4 @@ const OnSale = async () => {
   )
 }
 
-export default OnSale
+export default NewArrivals

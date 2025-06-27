@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "name": "Versace",
+    "description": "Italian luxury fashion house",
+    "logo": "/images/brands/versace-logo.svg",
+    "category": "Luxury",
+    "founded": "1978",
+    "specialty": "High-end fashion, accessories",
+    "color": "from-yellow-400 to-yellow-600",
+    "textColor": "text-yellow-900"
+  },
+  {
+    "id": 2,
+    "name": "Zara",
+    "description": "Spanish fast fashion retailer",
+    "logo": "/images/brands/zara-logo.svg",
+    "category": "Fast Fashion",
+    "founded": "1975",
+    "specialty": "Trendy, affordable fashion",
+    "color": "from-gray-800 to-black",
+    "textColor": "text-white"
+  },
+  {
+    "id": 3,
+    "name": "Gucci",
+    "description": "Italian luxury brand",
+    "logo": "/images/brands/gucci-logo.svg",
+    "category": "Luxury",
+    "founded": "1921",
+    "specialty": "Leather goods, fashion",
+    "color": "from-green-600 to-red-600",
+    "textColor": "text-white"
+  },
+  {
+    "id": 4,
+    "name": "H&M",
+    "description": "Swedish multinational clothing company",
+    "logo": "/images/brands/hm-logo.svg",
+    "category": "Fast Fashion",
+    "founded": "1947",
+    "specialty": "Affordable fashion for all",
+    "color": "from-red-500 to-red-700",
+    "textColor": "text-white"
+  },
+  {
+    "id": 5,
+    "name": "Louis Vuitton",
+    "description": "French luxury fashion house",
+    "logo": "/images/brands/lv-logo.svg",
+    "category": "Luxury",
+    "founded": "1854",
+    "specialty": "Leather goods, fashion",
+    "color": "from-amber-700 to-amber-900",
+    "textColor": "text-white"
+  },
+  {
+    "id": 6,
+    "name": "Nike",
+    "description": "American multinational corporation",
+    "logo": "/images/brands/nike-logo.svg",
+    "category": "Sportswear",
+    "founded": "1964",
+    "specialty": "Athletic footwear, apparel",
+    "color": "from-gray-900 to-black",
+    "textColor": "text-white"
+  },
+  {
+    "id": 7,
+    "name": "Chanel",
+    "description": "French luxury fashion house",
+    "logo": "/images/brands/chanel-logo.svg",
+    "category": "Luxury",
+    "founded": "1910",
+    "specialty": "Haute couture, ready-to-wear",
+    "color": "from-pink-200 to-pink-400",
+    "textColor": "text-pink-900"
+  },
+  {
+    "id": 8,
+    "name": "Adidas",
+    "description": "German multinational corporation",
+    "logo": "/images/brands/adidas-logo.svg",
+    "category": "Sportswear",
+    "founded": "1949",
+    "specialty": "Athletic shoes, clothing",
+    "color": "from-blue-600 to-blue-800",
+    "textColor": "text-white"
+  },
+  {
+    "id": 9,
+    "name": "Prada",
+    "description": "Italian luxury fashion house",
+    "logo": "/images/brands/prada-logo.svg",
+    "category": "Luxury",
+    "founded": "1913",
+    "specialty": "Leather handbags, travel accessories",
+    "color": "from-gray-700 to-gray-900",
+    "textColor": "text-white"
+  },
+  {
+    "id": 10,
+    "name": "Uniqlo",
+    "description": "Japanese casual wear designer",
+    "logo": "/images/brands/uniqlo-logo.svg",
+    "category": "Casual Wear",
+    "founded": "1949",
+    "specialty": "Casual wear, basics",
+    "color": "from-red-600 to-red-800",
+    "textColor": "text-white"
+  },
+  {
+    "id": 11,
+    "name": "Balenciaga",
+    "description": "Spanish luxury fashion house",
+    "logo": "/images/brands/balenciaga-logo.svg",
+    "category": "Luxury",
+    "founded": "1919",
+    "specialty": "Ready-to-wear, accessories",
+    "color": "from-black to-gray-800",
+    "textColor": "text-white"
+  },
+  {
+    "id": 12,
+    "name": "Calvin Klein",
+    "description": "American fashion house",
+    "logo": "/images/brands/ck-logo.svg",
+    "category": "Designer",
+    "founded": "1968",
+    "specialty": "Modern, minimalist fashion",
+    "color": "from-gray-400 to-gray-600",
+    "textColor": "text-white"
+  }
+]

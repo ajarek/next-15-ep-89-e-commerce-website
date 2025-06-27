@@ -5,6 +5,7 @@ import { Search, ShoppingCart, User } from 'lucide-react'
 import MobileNav from './MobileNav'
 import { ModeToggle } from './ModeToggle'
 import LengthCart from './LengthCart'
+import SelectName from './SelectName'
 
 const components: { title: string; href: string }[] = [
   {
@@ -17,7 +18,7 @@ const components: { title: string; href: string }[] = [
   },
   {
     title: 'New Arrivals',
-    href: '#new-arrivals',
+    href: '/new-arrivals',
   },
   {
     title: 'Brands',
@@ -46,17 +47,8 @@ const Navbar = () => {
           ))}
           <ModeToggle />
         </div>
-
-        <div className='relative'>
-          <Input
-            type='search'
-            className='h-[48px] w-full rounded-full bg-secondary px-12'
-          />
-          <Search
-            className='absolute left-4 top-1/2 -translate-y-1/2 '
-            size={24}
-          />
-        </div>
+          <SelectName query={'name'} />
+        
 
         <div className='flex flex-row items-center gap-4'>
           <Link
