@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Link from 'next/link'
-import { Input } from './ui/input'
-import { Search, ShoppingCart, User } from 'lucide-react'
+import {  ShoppingCart, User } from 'lucide-react'
 import MobileNav from './MobileNav'
 import { ModeToggle } from './ModeToggle'
 import LengthCart from './LengthCart'

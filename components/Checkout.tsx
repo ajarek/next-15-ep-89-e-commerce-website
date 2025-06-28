@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import { useCartStore } from '@/store/cartStore'
+import { Item, useCartStore } from '@/store/cartStore'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -22,8 +22,31 @@ import {
   Loader2
 } from 'lucide-react'
 
+type PaymentData= {
+    amount: number;
+    currency: string;
+    cardNumber: string;
+    expiryDate: string;
+    cvv: string;
+    cardholderName: string;
+    shippingInfo: {
+        firstName: string;
+        lastName: string;
+        email: string;
+         phone: string;
+        address: string;
+        city: string;
+        state: string;
+        zipCode: string;
+        country: string;
+    };
+    items: Item[];
+}
+
+
 // Simulated payment processing
-const simulatePayment = async (paymentData: any) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const simulatePayment = async (paymentData: PaymentData) => {
   // Simulate API call delay
   await new Promise(resolve => setTimeout(resolve, 2000))
   
@@ -35,7 +58,7 @@ const simulatePayment = async (paymentData: any) => {
   }
   
   return {
-    transactionId: `TXN-${Date.now()}-${Math.random().toString(36).substr(2, 9).toUpperCase()}`,
+    transactionId: `TXN-${Date.now()}-${Math.random().toString(36).substring(2, 11).toUpperCase()}`,
     status: 'success',
     timestamp: new Date().toISOString()
   }
@@ -440,9 +463,11 @@ const Checkout = () => {
                     id='sameAddress'
                     checked={useSameAddress}
                     onChange={(e) => setUseSameAddress(e.target.checked)}
-                    className='rounded'
+                    className='h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary'
                   />
-                  <Label htmlFor='sameAddress'>Billing address same as shipping</Label>
+                  <Label htmlFor='sameAddress' className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'>
+                    Billing address same as shipping
+                  </Label>
                 </div>
 
                 {!useSameAddress && (
