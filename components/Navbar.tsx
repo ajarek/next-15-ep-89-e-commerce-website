@@ -5,7 +5,8 @@ import MobileNav from './MobileNav'
 import { ModeToggle } from './ModeToggle'
 import LengthCart from './LengthCart'
 import SelectName from './SelectName'
-
+import { auth } from '@/app/api/auth/auth'
+import LogoutBtn from './LogoutBtn'
 const components: { title: string; href: string }[] = [
   {
     title: 'Shop',
@@ -25,7 +26,9 @@ const components: { title: string; href: string }[] = [
   },
 ]
 
-const Navbar = () => {
+const Navbar = async () => {
+   const session = await auth()
+   console.log(session)
   return (
     <header className=' h-18 flex items-center  px-25 max-lg:px-4 border-b bg-background  lg:border-none  '>
       <nav className='w-full flex  items-center justify-between gap-4 '>
@@ -64,9 +67,17 @@ const Navbar = () => {
                   <LengthCart />
                 </div>
           </Link>
-          <Link href='/register'>
-            <User size={24} />
-          </Link>
+          {session ? (
+            <LogoutBtn />
+          ) : (
+            <Link
+              href='/sign-in'
+              className='bg-primary text-background hover:bg-primary/80 transition-all duration-200 p-1 rounded-full'
+            >
+               <User size={24} />
+            </Link>
+          )}
+         
           
         </div>
 

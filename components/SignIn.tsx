@@ -32,19 +32,18 @@ const SignIn = () => {
   const onSubmit = async (data: SignInFormValues) => {
     try {
       const result = await signIn('credentials', {
-        redirect: false,
         email: data.email,
         password: data.password,
+        callbackUrl: '/dashboard',
       })
-      console.log(result)
       if (result?.error) {
-        console.error(result.error)
+        console.error('Error:', result?.error)
       }
       if (result?.ok) {
-        router.push('/dashboard')
+        router.push('/dashboard') // Redirect to the dashboard page
       }
     } catch (error) {
-      console.error(error)
+      console.error('Error:', error)
     }
     reset()
   }
@@ -56,8 +55,8 @@ const SignIn = () => {
       </div>
       <div>
         <Image
-          src='/images/vector.png'
-          alt='star'
+          src='/images/Illustration.png'
+          alt='Illustration'
           width={213}
           height={165}
         />
