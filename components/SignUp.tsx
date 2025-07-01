@@ -3,6 +3,8 @@ import React from 'react'
 import { Input } from './ui/input'
 import Link from 'next/link'
 import { Button } from './ui/button'
+import { addUser } from '@/lib/action'
+import { redirect } from 'next/navigation'
 
 const SignUpForm = () => {
   return (
@@ -13,21 +15,38 @@ const SignUpForm = () => {
       </div>
       <div>
         <Image
-          src='/images/vector.png'
+          src='/images/IllustrationUp.png'
           alt='star'
           width={213}
           height={165}
         />
       </div>
       <form
-        action=''
+          action={async (formData) => {
+        'use server'
+
+        try {
+          const userData = {
+            username: formData.get('username') as string,
+            email: formData.get('email') as string,
+            password: formData.get('password') as string,
+            img:formData.get('img') as string|| 'https://github.com/shadcn.png',
+            isAdmin: false
+          }
+          await addUser(userData)
+        } catch (error) {
+          console.error(error)
+        } finally {
+          redirect('/sign-in')
+        }
+      }}
         className='w-full flex flex-col gap-6'
       >
         <Input
-          type='name'
-          name='name'
-          id='name'
-          placeholder='name'
+          type='text'
+          name='username'
+          id='username'
+          placeholder='Name'
         />
         <Input
           type='email'
@@ -41,20 +60,19 @@ const SignUpForm = () => {
           id='password'
           placeholder='Password'
         />
-        <div className='w-full flex items-center justify-start gap-2'>
-          <input
-            type='checkbox'
-            name='checkbox'
-            id='checkbox'
-            className='transform scale-150 '
-          />
-          <p>
-            By creating an account you agree to our{' '}
-            <span className='text-primary font-semibold'>
-              Term and Conditions
-            </span>{' '}
-          </p>
-        </div>
+        <Input
+          type='text' 
+          name='img'
+          id='img'
+          placeholder='Image'
+        />
+        <Input
+          type='hidden'
+          name='isAdmin'
+          id='isAdmin'
+          value='false'
+        />
+        
         <Button type='submit'>Sign up</Button>
       </form>
       <div className='w-full flex flex-col items-center '>

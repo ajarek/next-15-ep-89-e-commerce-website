@@ -16,7 +16,7 @@ export const addUser = async (formData: UserWithoutId) => {
       username,
       email,
       password: hashedPassword,
-      img,
+      img: img || 'https://github.com/shadcn.png',
       isAdmin,
     })
     await newUser.save()
@@ -24,7 +24,7 @@ export const addUser = async (formData: UserWithoutId) => {
     revalidatePath('/')
     return { status: 200 }
   } catch (err) {
-    console.log(err)
+    console.error(err)
   }
 }
 
@@ -63,7 +63,7 @@ export const updateUser = async (formData: FormData) => {
     )
     console.log(`Updated user ${_id}`)
 
-    revalidatePath('/dashboard')
+    revalidatePath('/shop')
     return { message: `Updated user ${_id}` }
   } catch (err) {
     return { message: 'Failed to update to db' + err }
@@ -95,7 +95,7 @@ export const resetPassword = async (formData: FormData) => {
       }
     )
     console.log(`Updated user ${id}`)
-    revalidatePath('/dashboard')
+    revalidatePath('/shop')
     return { message: `Updated user ${id}` }
   } catch {
     return { message: 'Failed to update to db' }

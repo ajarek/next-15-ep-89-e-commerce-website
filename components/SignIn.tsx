@@ -1,52 +1,12 @@
-'use client'
-import Image from 'next/image'
-import React from 'react'
+import { signIn } from '@/app/api/auth/auth'
 import { Input } from './ui/input'
-import { signIn } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
-import { useForm } from 'react-hook-form'
-import Link from 'next/link'
 import { Button } from './ui/button'
+import Link from 'next/link'
+import Image from 'next/image'
+import { redirect } from 'next/navigation'
 import { Fingerprint } from 'lucide-react'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as z from 'zod'
 
-const signInSchema = z.object({
-  email: z.string().email('Invalid email address'),
-  password: z.string().min(6, 'Password must be at least 6 characters'),
-})
-
-type SignInFormValues = z.infer<typeof signInSchema>
-
-const SignIn = () => {
-  const router = useRouter()
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<SignInFormValues>({
-    resolver: zodResolver(signInSchema),
-  })
-  const onSubmit = async (data: SignInFormValues) => {
-    try {
-      const result = await signIn('credentials', {
-        email: data.email,
-        password: data.password,
-        callbackUrl: '/dashboard',
-      })
-      if (result?.error) {
-        console.error('Error:', result?.error)
-      }
-      if (result?.ok) {
-        router.push('/dashboard') // Redirect to the dashboard page
-      }
-    } catch (error) {
-      console.error('Error:', error)
-    }
-    reset()
-  }
+const SignIn=()=> {
   return (
     <div className='w-full flex flex-col items-center justify-center gap-6 p-6'>
       <div className='w-full flex flex-col items-start'>
@@ -62,38 +22,47 @@ const SignIn = () => {
         />
       </div>
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        action={async (formData) => {
+          'use server'
+          const email = formData.get('email') as string
+          const password = formData.get('password') as string
+          try {
+            await signIn('credentials', {
+              redirect: false,
+              email,
+              password,
+            })
+          } catch (error) {
+            console.error(error)
+          } finally {
+            redirect('/shop')
+          }
+        }}
         className='w-full flex flex-col gap-6'
       >
-        <div>
-          <Input
-            type='email'
-            id='email'
-            placeholder='Email'
-            {...register('email')}
-          />
-          {errors.email && (
-            <p className='text-red-500 text-sm'>{errors.email.message}</p>
-          )}
-        </div>
-        <div>
-          <Input
-            type='password'
-            id='password'
-            placeholder='Password'
-            {...register('password')}
-          />
-          {errors.password && (
-            <p className='text-red-500 text-sm'>{errors.password.message}</p>
-          )}
-        </div>
-        <Link
-          href='/forgot-password'
-          className='self-end'
+        <Input
+          name='email'
+          type='email'
+          className='mt-2'
+          required
+          placeholder='Email'
+        />
+
+        <Input
+          name='password'
+          type='password'
+          className='mt-2'
+          required
+          placeholder='Password'
+        />
+
+        <Button
+          type='submit'
+          className='w-full mt-4'
+          aria-label='Submit'
         >
-          Forgot your password ?
-        </Link>
-        <Button type='submit'>Sign in</Button>
+          Login
+        </Button>
       </form>
       <div className='w-full flex flex-col items-center gap-2'>
         <Fingerprint

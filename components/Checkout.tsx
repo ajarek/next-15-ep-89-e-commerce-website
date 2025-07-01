@@ -22,25 +22,25 @@ import {
   Loader2
 } from 'lucide-react'
 
-type PaymentData= {
-    amount: number;
-    currency: string;
-    cardNumber: string;
-    expiryDate: string;
-    cvv: string;
-    cardholderName: string;
-    shippingInfo: {
-        firstName: string;
-        lastName: string;
-        email: string;
-         phone: string;
-        address: string;
-        city: string;
-        state: string;
-        zipCode: string;
-        country: string;
-    };
-    items: Item[];
+type PaymentData = {
+  amount: number
+  currency: string
+  cardNumber: string
+  expiryDate: string
+  cvv: string
+  cardholderName: string
+  shippingInfo: {
+    firstName: string
+    lastName: string
+    email: string
+    phone: string
+    address: string
+    city: string
+    state: string
+    zipCode: string
+    country: string
+  }
+  items: Item[]
 }
 
 
