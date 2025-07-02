@@ -31,7 +31,6 @@ const components: { title: string; href: string }[] = [
   },
 ]
 const MobileNav = () => {
-  
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -52,17 +51,18 @@ const MobileNav = () => {
             </Link>
           </SheetTitle>
           <div className='flex flex-col gap-4 text-xl mt-4 '>
-          {components.map((component) => (
-            <Link
-              key={component.title}
-              href={component.href}
-              className='hover:underline underline-offset-4 transition-all duration-300  '
-            >
-              {component.title}
-            </Link>
-          ))}
-          <ModeToggle />
-        </div>
+            {components.map((component) => (
+              <Link
+                key={component.title}
+                href={component.href}
+                className='hover:underline underline-offset-4 transition-all duration-300  '
+                aria-label={component.title}
+              >
+                {component.title}
+              </Link>
+            ))}
+            <ModeToggle />
+          </div>
           <SheetDescription></SheetDescription>
         </SheetContent>
       </SheetClose>

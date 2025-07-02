@@ -27,6 +27,7 @@ const Footer = () => {
                 href='https://x.com'
                 className=''
                 target='_blank'
+                aria-label='Twitter'
               >
                 <Twitter />
               </Link>
@@ -34,6 +35,7 @@ const Footer = () => {
                 href='https://www.facebook.com'
                 className=''
                 target='_blank'
+                aria-label='Facebook'
               >
                 <Facebook />
               </Link>
@@ -41,6 +43,7 @@ const Footer = () => {
                 href='https://www.instagram.com/'
                 className=''
                 target='_blank'
+                aria-label='Instagram'
               >
                 <Instagram />
               </Link>
@@ -48,6 +51,7 @@ const Footer = () => {
                 href='https://github.com/'
                 className=''
                 target='_blank'
+                aria-label='Github'
               >
                 <Github />
               </Link>
@@ -62,6 +66,7 @@ const Footer = () => {
                 <Link
                   href='#'
                   className='text-sm text-gray-600 dark:text-gray-400 hover:underline'
+                  aria-label='About'
                 >
                   About
                 </Link>
@@ -70,6 +75,7 @@ const Footer = () => {
                 <Link
                   href='#'
                   className='text-sm text-gray-600 dark:text-gray-400 hover:underline'
+                  aria-label='Features'
                 >
                   Features
                 </Link>
@@ -78,6 +84,7 @@ const Footer = () => {
                 <Link
                   href='#'
                   className='text-sm text-gray-600 dark:text-gray-400 hover:underline'
+                  aria-label='Works'
                 >
                   Works
                 </Link>
@@ -86,6 +93,7 @@ const Footer = () => {
                 <Link
                   href='#'
                   className='text-sm text-gray-600 dark:text-gray-400 hover:underline'
+                  aria-label='Career'
                 >
                   Career
                 </Link>
@@ -101,6 +109,7 @@ const Footer = () => {
                 <Link
                   href='#'
                   className='text-sm text-gray-600 dark:text-gray-400 hover:underline'
+                  aria-label='Customer Support'
                 >
                   Customer Support
                 </Link>
@@ -109,6 +118,7 @@ const Footer = () => {
                 <Link
                   href='#'
                   className='text-sm text-gray-600 dark:text-gray-400 hover:underline'
+                  aria-label='Delivery Details'
                 >
                   Delivery Details
                 </Link>
@@ -117,6 +127,7 @@ const Footer = () => {
                 <Link
                   href='#'
                   className='text-sm text-gray-600 dark:text-gray-400 hover:underline'
+                  aria-label='Terms & Conditions'
                 >
                   Terms & Conditions
                 </Link>
@@ -125,6 +136,7 @@ const Footer = () => {
                 <Link
                   href='#'
                   className='text-sm text-gray-600 dark:text-gray-400 hover:underline'
+                  aria-label='Privacy Policy'
                 >
                   Privacy Policy
                 </Link>
@@ -140,6 +152,7 @@ const Footer = () => {
                 <Link
                   href='#'
                   className='text-sm text-gray-600 dark:text-gray-400 hover:underline'
+                  aria-label='Account'
                 >
                   Account
                 </Link>
@@ -148,6 +161,7 @@ const Footer = () => {
                 <Link
                   href='#'
                   className='text-sm text-gray-600 dark:text-gray-400 hover:underline'
+                  aria-label='Manage Deliveries'
                 >
                   Manage Deliveries
                 </Link>
@@ -156,6 +170,7 @@ const Footer = () => {
                 <Link
                   href='#'
                   className='text-sm text-gray-600 dark:text-gray-400 hover:underline'
+                  aria-label='Orders'
                 >
                   Orders
                 </Link>
@@ -164,6 +179,7 @@ const Footer = () => {
                 <Link
                   href='#'
                   className='text-sm text-gray-600 dark:text-gray-400 hover:underline'
+                  aria-label='Payments'
                 >
                   Payments
                 </Link>
@@ -180,7 +196,10 @@ const Footer = () => {
           </p>
 
           <div className='flex items-center gap-4'>
-            <Link href='#'>
+            <Link
+              href='#'
+              aria-label='Visa'
+            >
               <Image
                 src={'/images/visa.png'}
                 alt={'visa'}
@@ -188,7 +207,10 @@ const Footer = () => {
                 height={50}
               />
             </Link>
-            <Link href='#'>
+            <Link
+              href='#'
+              aria-label='Mastercard'
+            >
               <Image
                 src={'/images/mastercard.png'}
                 alt={'mastercard'}
@@ -196,7 +218,10 @@ const Footer = () => {
                 height={50}
               />
             </Link>
-            <Link href='#'>
+            <Link
+              href='#'
+              aria-label='Paypal'
+            >
               <Image
                 src={'/images/paypal.png'}
                 alt={'paypal'}
@@ -204,7 +229,10 @@ const Footer = () => {
                 height={50}
               />
             </Link>
-            <Link href='#'>
+            <Link
+              href='#'
+              aria-label='Apple Pay'
+            >
               <Image
                 src={'/images/pay.png'}
                 alt={'pay'}
@@ -212,7 +240,10 @@ const Footer = () => {
                 height={50}
               />
             </Link>
-            <Link href='#'>
+            <Link
+              href='#'
+              aria-label='Google Pay'
+            >
               <Image
                 src={'/images/google-pay.png'}
                 alt={'google-pay'}

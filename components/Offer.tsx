@@ -3,28 +3,30 @@ import React from 'react'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { Mail } from 'lucide-react'
-import { toast } from "sonner"
-import { usePathname } from 'next/navigation';
+import { toast } from 'sonner'
+import { usePathname } from 'next/navigation'
 
 const Offer = () => {
   const [email, setEmail] = React.useState('')
   const pathname = usePathname()
-  const hideOn = ['/shop'];
+  const hideOn = ['/shop']
 
   if (hideOn.includes(pathname)) {
-    return null;
+    return null
   }
   return (
     <div className='w-full flex justify-center px-16 max-lg:px-4'>
       <div className='w-full grid grid-cols-[2fr_1fr] max-lg:grid-cols-1 gap-4 bg-foreground text-background  p-12  rounded-2xl'>
         <h1 className='   text-4xl font-extrabold uppercase'>
-          Stay upto date about <br/> our latest offers
+          Stay upto date about <br /> our latest offers
         </h1>
-        <form onSubmit={(e) => {
+        <form
+          onSubmit={(e) => {
             e.preventDefault()
-            toast.success('Subscribed! '+email)
+            toast.success('Subscribed! ' + email)
             setEmail('')
-          }}>
+          }}
+        >
           <div className='relative flex flex-col items-center  '>
             <Input
               type='email'
@@ -43,6 +45,7 @@ const Offer = () => {
           <Button
             type='submit'
             className='w-full text-foreground bg-background rounded-full mt-4 hover:bg-background/80 transition-all duration-200 cursor-pointer'
+            aria-label='Subscribe'
           >
             Subscribe to Newsletter
           </Button>

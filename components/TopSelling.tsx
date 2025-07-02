@@ -11,7 +11,10 @@ import Link from 'next/link'
 
 const TopSelling = () => {
   return (
-    <div className='w-full flex flex-col items-center justify-start gap-4' id='#on-sale'>
+    <div
+      className='w-full flex flex-col items-center justify-start gap-4'
+      id='#on-sale'
+    >
       <h1 className='w-full text-center text-3xl font-bold uppercase'>
         Top Selling
       </h1>

@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar'
 import { ThemeProvider } from '@/components/Theme-provider'
 import Footer from '@/components/Footer'
 import Offer from '@/components/Offer'
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from '@/components/ui/sonner'
 import { SessionProvider } from 'next-auth/react'
 
 const geistSans = Geist({
@@ -50,7 +50,7 @@ export default function RootLayout({
               <Offer />
               <Footer />
             </div>
-             <Toaster />
+            <Toaster />
           </ThemeProvider>
         </SessionProvider>
       </body>

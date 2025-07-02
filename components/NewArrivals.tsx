@@ -12,7 +12,10 @@ import Link from 'next/link'
 
 const NewArrivals = () => {
   return (
-    <div className='w-full flex flex-col items-center justify-start gap-4' id='new-arrivals'>
+    <div
+      className='w-full flex flex-col items-center justify-start gap-4'
+      id='new-arrivals'
+    >
       <h1 className='w-full text-center text-3xl font-bold uppercase'>
         New Arrivals
       </h1>

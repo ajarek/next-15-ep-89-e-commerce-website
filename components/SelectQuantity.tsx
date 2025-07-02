@@ -32,7 +32,7 @@ const SelectQuantity = ({ query }: SearchProps) => {
     }
 
     handleQuantity(quantity.toString())
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [quantity])
 
   return (
@@ -45,7 +45,7 @@ const SelectQuantity = ({ query }: SearchProps) => {
         }
         aria-label='remove'
       >
-        <Minus color='black'/>
+        <Minus color='black' />
       </Button>
       <div className='w-16 h-9 flex items-center justify-center  bg-gray-300 text-black'>
         {quantity}

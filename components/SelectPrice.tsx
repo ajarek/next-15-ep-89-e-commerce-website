@@ -7,7 +7,6 @@ interface SearchProps {
   query: string
 }
 
-
 const SelectPrice = ({ query }: SearchProps) => {
   const searchParams = useSearchParams()
   const { replace } = useRouter()
@@ -37,7 +36,14 @@ const SelectPrice = ({ query }: SearchProps) => {
   return (
     <div className='flex flex-col items-start justify-start gap-2'>
       <div className='w-full flex items-center gap-4'>
-      <Input type='range' min={50} max={200} step={10} onChange={(e) => handleSearch(e.target.value)} className='w-full' />
+        <Input
+          type='range'
+          min={50}
+          max={200}
+          step={10}
+          onChange={(e) => handleSearch(e.target.value)}
+          className='w-full'
+        />
       </div>
       <p>${price}</p>
     </div>

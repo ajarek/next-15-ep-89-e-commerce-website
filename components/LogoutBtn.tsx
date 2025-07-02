@@ -12,7 +12,7 @@ const LogoutBtn = () => {
     <Link
       href='/signout'
       className='bg-red-500 p-1 rounded-full flex justify-center items-center secondary-foreground  transition-all delay-200    text-white'
-      aria-label='Wyloguj'
+      aria-label='Logout'
     >
       <TooltipProvider>
         <Tooltip>
@@ -21,7 +21,7 @@ const LogoutBtn = () => {
             <LogOut
               size={26}
               strokeWidth={1}
-              aria-label='Wyloguj'
+              aria-label='Logout'
             />
           </TooltipTrigger>
           <TooltipContent>

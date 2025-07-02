@@ -115,6 +115,7 @@ const Brands = () => {
               <Link
                 href={`/shop?brand=${brand.name.toLowerCase()}`}
                 className='w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 px-4 rounded-lg font-medium transition-all duration-200 flex items-center justify-center group-hover:shadow-lg'
+                aria-label='Shop'
               >
                 Shop {brand.name}
               </Link>
@@ -136,12 +137,14 @@ const Brands = () => {
           <Link
             href='/shop'
             className='bg-primary hover:bg-primary/90 text-primary-foreground py-3 px-8 rounded-full font-medium transition-all duration-200'
+            aria-label='Browse All Products'
           >
             Browse All Products
           </Link>
           <Link
             href='/'
             className='bg-secondary hover:bg-secondary/80 text-secondary-foreground py-3 px-8 rounded-full font-medium transition-all duration-200'
+            aria-label='Request a Brand'
           >
             Request a Brand
           </Link>

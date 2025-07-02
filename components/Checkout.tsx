@@ -9,17 +9,17 @@ import { Separator } from '@/components/ui/separator'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 import Image from 'next/image'
-import { 
-  CreditCard, 
-  Lock, 
-  MapPin, 
-  User, 
-  Mail, 
-  Phone, 
+import {
+  CreditCard,
+  Lock,
+  MapPin,
+  User,
+  Mail,
+  Phone,
   Calendar,
   Shield,
   CheckCircle,
-  Loader2
+  Loader2,
 } from 'lucide-react'
 
 type PaymentData = {
@@ -43,24 +43,26 @@ type PaymentData = {
   items: Item[]
 }
 
-
 // Simulated payment processing
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const simulatePayment = async (paymentData: PaymentData) => {
   // Simulate API call delay
-  await new Promise(resolve => setTimeout(resolve, 2000))
-  
+  await new Promise((resolve) => setTimeout(resolve, 2000))
+
   // Simulate random success/failure (90% success rate)
   const isSuccess = Math.random() > 0.1
-  
+
   if (!isSuccess) {
     throw new Error('Payment failed. Please try again.')
   }
-  
+
   return {
-    transactionId: `TXN-${Date.now()}-${Math.random().toString(36).substring(2, 11).toUpperCase()}`,
+    transactionId: `TXN-${Date.now()}-${Math.random()
+      .toString(36)
+      .substring(2, 11)
+      .toUpperCase()}`,
     status: 'success',
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
   }
 }
 
@@ -68,7 +70,7 @@ const simulatePayment = async (paymentData: PaymentData) => {
 const sampleCards = [
   { type: 'Visa', number: '4532 1234 5678 9012', cvv: '123' },
   { type: 'Mastercard', number: '5555 4444 3333 2222', cvv: '456' },
-  { type: 'American Express', number: '3782 822463 10005', cvv: '7890' }
+  { type: 'American Express', number: '3782 822463 10005', cvv: '7890' },
 ]
 
 const Checkout = () => {
@@ -76,7 +78,7 @@ const Checkout = () => {
   const router = useRouter()
   const [isProcessing, setIsProcessing] = useState(false)
   const [currentStep, setCurrentStep] = useState(1)
-  
+
   // Form states
   const [shippingInfo, setShippingInfo] = useState({
     firstName: '',
@@ -87,9 +89,9 @@ const Checkout = () => {
     city: '',
     state: '',
     zipCode: '',
-    country: 'United States'
+    country: 'United States',
   })
-  
+
   const [paymentInfo, setPaymentInfo] = useState({
     cardNumber: '',
     expiryDate: '',
@@ -98,9 +100,9 @@ const Checkout = () => {
     billingAddress: '',
     billingCity: '',
     billingState: '',
-    billingZipCode: ''
+    billingZipCode: '',
   })
-  
+
   const [useSameAddress, setUseSameAddress] = useState(true)
 
   // Calculate totals
@@ -114,7 +116,7 @@ const Checkout = () => {
   const formatCardNumber = (value: string) => {
     const v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '')
     const matches = v.match(/\d{4,16}/g)
-    const match = matches && matches[0] || ''
+    const match = (matches && matches[0]) || ''
     const parts = []
     for (let i = 0, len = match.length; i < len; i += 4) {
       parts.push(match.substring(i, i + 4))
@@ -139,7 +141,7 @@ const Checkout = () => {
   const handlePayment = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsProcessing(true)
-    
+
     try {
       const paymentData = {
         amount: finalTotal,
@@ -149,21 +151,22 @@ const Checkout = () => {
         cvv: paymentInfo.cvv,
         cardholderName: paymentInfo.cardholderName,
         shippingInfo,
-        items
+        items,
       }
-      
+
       const result = await simulatePayment(paymentData)
-      
+
       // Clear cart on successful payment
       removeAll()
-      
-      toast.success(`Payment successful! Transaction ID: ${result.transactionId}`)
-      
+
+      toast.success(
+        `Payment successful! Transaction ID: ${result.transactionId}`
+      )
+
       // Redirect to success page or order confirmation
       setTimeout(() => {
         router.push('/')
       }, 2000)
-      
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'Payment failed')
     } finally {
@@ -172,13 +175,13 @@ const Checkout = () => {
   }
 
   // Auto-fill sample card data
-  const fillSampleCard = (card: typeof sampleCards[0]) => {
-    setPaymentInfo(prev => ({
+  const fillSampleCard = (card: (typeof sampleCards)[0]) => {
+    setPaymentInfo((prev) => ({
       ...prev,
       cardNumber: card.number,
       cvv: card.cvv,
       expiryDate: '12/28',
-      cardholderName: 'John Doe'
+      cardholderName: 'John Doe',
     }))
     toast.info(`Sample ${card.type} card filled`)
   }
@@ -186,8 +189,10 @@ const Checkout = () => {
   if (items.length === 0) {
     return (
       <div className='w-full min-h-screen flex flex-col items-center justify-center gap-4'>
-        <h1 className='text-3xl font-bold text-muted-foreground'>Your cart is empty</h1>
-        <Button onClick={() => router.push('/shop')}>Continue Shopping</Button>
+        <h1 className='text-3xl font-bold text-muted-foreground'>
+          Your cart is empty
+        </h1>
+        <Button onClick={() => router.push('/shop')} aria-label='Continue Shopping'>Continue Shopping</Button>
       </div>
     )
   }
@@ -205,22 +210,52 @@ const Checkout = () => {
       {/* Progress Steps */}
       <div className='flex items-center justify-center mb-8'>
         <div className='flex items-center gap-4'>
-          <div className={`flex items-center gap-2 ${currentStep >= 1 ? 'text-primary' : 'text-muted-foreground'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currentStep >= 1 ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
+          <div
+            className={`flex items-center gap-2 ${
+              currentStep >= 1 ? 'text-primary' : 'text-muted-foreground'
+            }`}
+          >
+            <div
+              className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                currentStep >= 1
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-muted'
+              }`}
+            >
               {currentStep > 1 ? <CheckCircle className='w-5 h-5' /> : '1'}
             </div>
             <span>Shipping</span>
           </div>
           <div className='w-12 h-px bg-border' />
-          <div className={`flex items-center gap-2 ${currentStep >= 2 ? 'text-primary' : 'text-muted-foreground'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currentStep >= 2 ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
+          <div
+            className={`flex items-center gap-2 ${
+              currentStep >= 2 ? 'text-primary' : 'text-muted-foreground'
+            }`}
+          >
+            <div
+              className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                currentStep >= 2
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-muted'
+              }`}
+            >
               {currentStep > 2 ? <CheckCircle className='w-5 h-5' /> : '2'}
             </div>
             <span>Payment</span>
           </div>
           <div className='w-12 h-px bg-border' />
-          <div className={`flex items-center gap-2 ${currentStep >= 3 ? 'text-primary' : 'text-muted-foreground'}`}>
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${currentStep >= 3 ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
+          <div
+            className={`flex items-center gap-2 ${
+              currentStep >= 3 ? 'text-primary' : 'text-muted-foreground'
+            }`}
+          >
+            <div
+              className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                currentStep >= 3
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-muted'
+              }`}
+            >
               3
             </div>
             <span>Review</span>
@@ -247,14 +282,17 @@ const Checkout = () => {
                 {sampleCards.map((card, index) => (
                   <Button
                     key={index}
-                    variant="outline"
-                    size="sm"
+                    variant='outline'
+                    size='sm'
                     onClick={() => fillSampleCard(card)}
                     className='text-left justify-start'
+                    aria-label='Fill sample card'
                   >
                     <div>
                       <div className='font-medium'>{card.type}</div>
-                      <div className='text-xs text-muted-foreground'>{card.number}</div>
+                      <div className='text-xs text-muted-foreground'>
+                        {card.number}
+                      </div>
                     </div>
                   </Button>
                 ))}
@@ -278,7 +316,12 @@ const Checkout = () => {
                     <Input
                       id='firstName'
                       value={shippingInfo.firstName}
-                      onChange={(e) => setShippingInfo(prev => ({ ...prev, firstName: e.target.value }))}
+                      onChange={(e) =>
+                        setShippingInfo((prev) => ({
+                          ...prev,
+                          firstName: e.target.value,
+                        }))
+                      }
                       required
                     />
                   </div>
@@ -287,12 +330,17 @@ const Checkout = () => {
                     <Input
                       id='lastName'
                       value={shippingInfo.lastName}
-                      onChange={(e) => setShippingInfo(prev => ({ ...prev, lastName: e.target.value }))}
+                      onChange={(e) =>
+                        setShippingInfo((prev) => ({
+                          ...prev,
+                          lastName: e.target.value,
+                        }))
+                      }
                       required
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <Label htmlFor='email'>Email</Label>
                   <div className='relative'>
@@ -302,12 +350,17 @@ const Checkout = () => {
                       type='email'
                       className='pl-10'
                       value={shippingInfo.email}
-                      onChange={(e) => setShippingInfo(prev => ({ ...prev, email: e.target.value }))}
+                      onChange={(e) =>
+                        setShippingInfo((prev) => ({
+                          ...prev,
+                          email: e.target.value,
+                        }))
+                      }
                       required
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <Label htmlFor='phone'>Phone Number</Label>
                   <div className='relative'>
@@ -317,29 +370,44 @@ const Checkout = () => {
                       type='tel'
                       className='pl-10'
                       value={shippingInfo.phone}
-                      onChange={(e) => setShippingInfo(prev => ({ ...prev, phone: e.target.value }))}
+                      onChange={(e) =>
+                        setShippingInfo((prev) => ({
+                          ...prev,
+                          phone: e.target.value,
+                        }))
+                      }
                       required
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <Label htmlFor='address'>Address</Label>
                   <Input
                     id='address'
                     value={shippingInfo.address}
-                    onChange={(e) => setShippingInfo(prev => ({ ...prev, address: e.target.value }))}
+                    onChange={(e) =>
+                      setShippingInfo((prev) => ({
+                        ...prev,
+                        address: e.target.value,
+                      }))
+                    }
                     required
                   />
                 </div>
-                
+
                 <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
                   <div>
                     <Label htmlFor='city'>City</Label>
                     <Input
                       id='city'
                       value={shippingInfo.city}
-                      onChange={(e) => setShippingInfo(prev => ({ ...prev, city: e.target.value }))}
+                      onChange={(e) =>
+                        setShippingInfo((prev) => ({
+                          ...prev,
+                          city: e.target.value,
+                        }))
+                      }
                       required
                     />
                   </div>
@@ -348,7 +416,12 @@ const Checkout = () => {
                     <Input
                       id='state'
                       value={shippingInfo.state}
-                      onChange={(e) => setShippingInfo(prev => ({ ...prev, state: e.target.value }))}
+                      onChange={(e) =>
+                        setShippingInfo((prev) => ({
+                          ...prev,
+                          state: e.target.value,
+                        }))
+                      }
                       required
                     />
                   </div>
@@ -357,16 +430,27 @@ const Checkout = () => {
                     <Input
                       id='zipCode'
                       value={shippingInfo.zipCode}
-                      onChange={(e) => setShippingInfo(prev => ({ ...prev, zipCode: e.target.value }))}
+                      onChange={(e) =>
+                        setShippingInfo((prev) => ({
+                          ...prev,
+                          zipCode: e.target.value,
+                        }))
+                      }
                       required
                     />
                   </div>
                 </div>
-                
-                <Button 
+
+                <Button
                   onClick={() => setCurrentStep(2)}
                   className='w-full'
-                  disabled={!shippingInfo.firstName || !shippingInfo.lastName || !shippingInfo.email || !shippingInfo.address}
+                  disabled={
+                    !shippingInfo.firstName ||
+                    !shippingInfo.lastName ||
+                    !shippingInfo.email ||
+                    !shippingInfo.address
+                  }
+                  aria-label='Continue to payment'
                 >
                   Continue to Payment
                 </Button>
@@ -393,10 +477,12 @@ const Checkout = () => {
                       className='pl-10'
                       placeholder='1234 5678 9012 3456'
                       value={paymentInfo.cardNumber}
-                      onChange={(e) => setPaymentInfo(prev => ({
-                        ...prev,
-                        cardNumber: formatCardNumber(e.target.value)
-                      }))}
+                      onChange={(e) =>
+                        setPaymentInfo((prev) => ({
+                          ...prev,
+                          cardNumber: formatCardNumber(e.target.value),
+                        }))
+                      }
                       maxLength={19}
                       required
                     />
@@ -413,10 +499,12 @@ const Checkout = () => {
                         className='pl-10'
                         placeholder='MM/YY'
                         value={paymentInfo.expiryDate}
-                        onChange={(e) => setPaymentInfo(prev => ({
-                          ...prev,
-                          expiryDate: formatExpiryDate(e.target.value)
-                        }))}
+                        onChange={(e) =>
+                          setPaymentInfo((prev) => ({
+                            ...prev,
+                            expiryDate: formatExpiryDate(e.target.value),
+                          }))
+                        }
                         maxLength={5}
                         required
                       />
@@ -431,10 +519,12 @@ const Checkout = () => {
                         className='pl-10'
                         placeholder='123'
                         value={paymentInfo.cvv}
-                        onChange={(e) => setPaymentInfo(prev => ({
-                          ...prev,
-                          cvv: e.target.value.replace(/\D/g, '')
-                        }))}
+                        onChange={(e) =>
+                          setPaymentInfo((prev) => ({
+                            ...prev,
+                            cvv: e.target.value.replace(/\D/g, ''),
+                          }))
+                        }
                         maxLength={4}
                         required
                       />
@@ -451,7 +541,12 @@ const Checkout = () => {
                       className='pl-10'
                       placeholder='John Doe'
                       value={paymentInfo.cardholderName}
-                      onChange={(e) => setPaymentInfo(prev => ({ ...prev, cardholderName: e.target.value }))}
+                      onChange={(e) =>
+                        setPaymentInfo((prev) => ({
+                          ...prev,
+                          cardholderName: e.target.value,
+                        }))
+                      }
                       required
                     />
                   </div>
@@ -465,7 +560,10 @@ const Checkout = () => {
                     onChange={(e) => setUseSameAddress(e.target.checked)}
                     className='h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary'
                   />
-                  <Label htmlFor='sameAddress' className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'>
+                  <Label
+                    htmlFor='sameAddress'
+                    className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
+                  >
                     Billing address same as shipping
                   </Label>
                 </div>
@@ -478,7 +576,12 @@ const Checkout = () => {
                       <Input
                         id='billingAddress'
                         value={paymentInfo.billingAddress}
-                        onChange={(e) => setPaymentInfo(prev => ({ ...prev, billingAddress: e.target.value }))}
+                        onChange={(e) =>
+                          setPaymentInfo((prev) => ({
+                            ...prev,
+                            billingAddress: e.target.value,
+                          }))
+                        }
                         required={!useSameAddress}
                       />
                     </div>
@@ -488,7 +591,12 @@ const Checkout = () => {
                         <Input
                           id='billingCity'
                           value={paymentInfo.billingCity}
-                          onChange={(e) => setPaymentInfo(prev => ({ ...prev, billingCity: e.target.value }))}
+                          onChange={(e) =>
+                            setPaymentInfo((prev) => ({
+                              ...prev,
+                              billingCity: e.target.value,
+                            }))
+                          }
                           required={!useSameAddress}
                         />
                       </div>
@@ -497,7 +605,12 @@ const Checkout = () => {
                         <Input
                           id='billingState'
                           value={paymentInfo.billingState}
-                          onChange={(e) => setPaymentInfo(prev => ({ ...prev, billingState: e.target.value }))}
+                          onChange={(e) =>
+                            setPaymentInfo((prev) => ({
+                              ...prev,
+                              billingState: e.target.value,
+                            }))
+                          }
                           required={!useSameAddress}
                         />
                       </div>
@@ -506,7 +619,12 @@ const Checkout = () => {
                         <Input
                           id='billingZipCode'
                           value={paymentInfo.billingZipCode}
-                          onChange={(e) => setPaymentInfo(prev => ({ ...prev, billingZipCode: e.target.value }))}
+                          onChange={(e) =>
+                            setPaymentInfo((prev) => ({
+                              ...prev,
+                              billingZipCode: e.target.value,
+                            }))
+                          }
                           required={!useSameAddress}
                         />
                       </div>
@@ -519,13 +637,20 @@ const Checkout = () => {
                     variant='outline'
                     onClick={() => setCurrentStep(1)}
                     className='flex-1'
+                    aria-label='Back to shipping'
                   >
                     Back to Shipping
                   </Button>
                   <Button
                     onClick={() => setCurrentStep(3)}
                     className='flex-1'
-                    disabled={!paymentInfo.cardNumber || !paymentInfo.expiryDate || !paymentInfo.cvv || !paymentInfo.cardholderName}
+                    disabled={
+                      !paymentInfo.cardNumber ||
+                      !paymentInfo.expiryDate ||
+                      !paymentInfo.cvv ||
+                      !paymentInfo.cardholderName
+                    }
+                    aria-label='Review order'
                   >
                     Review Order
                   </Button>
@@ -545,9 +670,14 @@ const Checkout = () => {
                 <div>
                   <h4 className='font-medium mb-2'>Shipping Address</h4>
                   <div className='text-sm text-muted-foreground'>
-                    <p>{shippingInfo.firstName} {shippingInfo.lastName}</p>
+                    <p>
+                      {shippingInfo.firstName} {shippingInfo.lastName}
+                    </p>
                     <p>{shippingInfo.address}</p>
-                    <p>{shippingInfo.city}, {shippingInfo.state} {shippingInfo.zipCode}</p>
+                    <p>
+                      {shippingInfo.city}, {shippingInfo.state}{' '}
+                      {shippingInfo.zipCode}
+                    </p>
                     <p>{shippingInfo.email}</p>
                     <p>{shippingInfo.phone}</p>
                   </div>
@@ -572,7 +702,10 @@ const Checkout = () => {
                   <h4 className='font-medium mb-2'>Order Items</h4>
                   <div className='space-y-2'>
                     {items.map((item) => (
-                      <div key={item.id} className='flex items-center gap-3 text-sm'>
+                      <div
+                        key={item.id}
+                        className='flex items-center gap-3 text-sm'
+                      >
                         <Image
                           src={item.image}
                           alt={item.name}
@@ -583,10 +716,13 @@ const Checkout = () => {
                         <div className='flex-1'>
                           <p className='font-medium'>{item.name}</p>
                           <p className='text-muted-foreground'>
-                            Size: {item.size}, Color: {item.color}, Qty: {item.quantity}
+                            Size: {item.size}, Color: {item.color}, Qty:{' '}
+                            {item.quantity}
                           </p>
                         </div>
-                        <p className='font-medium'>${(item.price * item.quantity).toFixed(2)}</p>
+                        <p className='font-medium'>
+                          ${(item.price * item.quantity).toFixed(2)}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -597,6 +733,7 @@ const Checkout = () => {
                     variant='outline'
                     onClick={() => setCurrentStep(2)}
                     className='flex-1'
+                    aria-label='Back to payment'
                   >
                     Back to Payment
                   </Button>
@@ -604,6 +741,7 @@ const Checkout = () => {
                     onClick={handlePayment}
                     disabled={isProcessing}
                     className='flex-1'
+                    aria-label='Complete payment'
                   >
                     {isProcessing ? (
                       <>
@@ -633,7 +771,10 @@ const Checkout = () => {
               {/* Items */}
               <div className='space-y-3'>
                 {items.map((item) => (
-                  <div key={item.id} className='flex items-center gap-3'>
+                  <div
+                    key={item.id}
+                    className='flex items-center gap-3'
+                  >
                     <div className='relative'>
                       <Image
                         src={item.image}
@@ -647,12 +788,16 @@ const Checkout = () => {
                       </div>
                     </div>
                     <div className='flex-1 min-w-0'>
-                      <p className='font-medium text-sm truncate'>{item.name}</p>
+                      <p className='font-medium text-sm truncate'>
+                        {item.name}
+                      </p>
                       <p className='text-xs text-muted-foreground'>
                         {item.size} • {item.color}
                       </p>
                     </div>
-                    <p className='font-medium text-sm'>${(item.price * item.quantity).toFixed(2)}</p>
+                    <p className='font-medium text-sm'>
+                      ${(item.price * item.quantity).toFixed(2)}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -705,11 +850,13 @@ const Checkout = () => {
                   <span className='font-medium'>Estimated Delivery</span>
                 </div>
                 <p className='text-xs text-muted-foreground'>
-                  {new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', {
+                  {new Date(
+                    Date.now() + 5 * 24 * 60 * 60 * 1000
+                  ).toLocaleDateString('en-US', {
                     weekday: 'long',
                     year: 'numeric',
                     month: 'long',
-                    day: 'numeric'
+                    day: 'numeric',
                   })}
                 </p>
               </div>

@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { redirect } from 'next/navigation'
 import { Fingerprint } from 'lucide-react'
 
-const SignIn=()=> {
+const SignIn = () => {
   return (
     <div className='w-full flex flex-col items-center justify-center gap-6 p-6'>
       <div className='w-full flex flex-col items-start'>

@@ -39,12 +39,11 @@ const SelectName = ({ query }: SearchProps) => {
         defaultValue={searchParams.get(query)?.toString()}
       />
       <Search
-            className='absolute left-4 top-1/2 -translate-y-1/2 '
-            size={24}
-          />
+        className='absolute left-4 top-1/2 -translate-y-1/2 '
+        size={24}
+      />
     </div>
   )
 }
 
 export default SelectName
-

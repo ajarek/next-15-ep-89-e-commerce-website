@@ -34,8 +34,8 @@ const ButtonAddCart = ({
           id: Number(product?.id),
           name: product?.name || '',
           image: product?.image || '',
-         size: size ||'Medium',
-          color: color ||'blue',
+          size: size || 'Medium',
+          color: color || 'blue',
           price: Number(product?.discount),
           quantity: Number(quantity) || 1,
         })

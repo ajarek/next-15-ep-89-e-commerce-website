@@ -15,25 +15,24 @@ const SelectSize = ({ query }: SearchProps) => {
   const [size, setSize] = React.useState<string | null>('')
 
   React.useEffect(() => {
-      setSize(searchParams.get(query) || null)
-    }, [searchParams, query])
-  
-    const handleSearch = (term: string) => {
-      const params = new URLSearchParams(searchParams)
-  
-      if (term) {
-        params.set(`${query}`, term)
-      } else {
-        params.delete(`${query}`)
-      }
-      try {
-        replace(`${pathname}?${params.toString()}`)
-      } catch (error) {
-        console.error('Failed to replace URL parameters:', error)
-      }
-      setSize(term)
+    setSize(searchParams.get(query) || null)
+  }, [searchParams, query])
+
+  const handleSearch = (term: string) => {
+    const params = new URLSearchParams(searchParams)
+
+    if (term) {
+      params.set(`${query}`, term)
+    } else {
+      params.delete(`${query}`)
     }
-  
+    try {
+      replace(`${pathname}?${params.toString()}`)
+    } catch (error) {
+      console.error('Failed to replace URL parameters:', error)
+    }
+    setSize(term)
+  }
 
   return (
     <div className='flex flex-col items-start justify-start gap-2'>

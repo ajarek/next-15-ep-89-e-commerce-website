@@ -22,24 +22,26 @@ const SignUpForm = () => {
         />
       </div>
       <form
-          action={async (formData) => {
-        'use server'
+        action={async (formData) => {
+          'use server'
 
-        try {
-          const userData = {
-            username: formData.get('username') as string,
-            email: formData.get('email') as string,
-            password: formData.get('password') as string,
-            img:formData.get('img') as string|| 'https://github.com/shadcn.png',
-            isAdmin: false
+          try {
+            const userData = {
+              username: formData.get('username') as string,
+              email: formData.get('email') as string,
+              password: formData.get('password') as string,
+              img:
+                (formData.get('img') as string) ||
+                'https://github.com/shadcn.png',
+              isAdmin: false,
+            }
+            await addUser(userData)
+          } catch (error) {
+            console.error(error)
+          } finally {
+            redirect('/sign-in')
           }
-          await addUser(userData)
-        } catch (error) {
-          console.error(error)
-        } finally {
-          redirect('/sign-in')
-        }
-      }}
+        }}
         className='w-full flex flex-col gap-6'
       >
         <Input
@@ -61,7 +63,7 @@ const SignUpForm = () => {
           placeholder='Password'
         />
         <Input
-          type='text' 
+          type='text'
           name='img'
           id='img'
           placeholder='Image'
@@ -72,8 +74,13 @@ const SignUpForm = () => {
           id='isAdmin'
           value='false'
         />
-        
-        <Button type='submit'>Sign up</Button>
+
+        <Button
+          type='submit'
+          aria-label='Sign up'
+        >
+          Sign up
+        </Button>
       </form>
       <div className='w-full flex flex-col items-center '>
         <p>

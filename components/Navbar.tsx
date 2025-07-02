@@ -33,7 +33,10 @@ const Navbar = async () => {
   return (
     <header className=' h-18 flex items-center  px-25 max-lg:px-4 border-b bg-background  lg:border-none  '>
       <nav className='w-full flex  items-center justify-between gap-4 '>
-        <Link href='/'>
+        <Link
+          href='/'
+          aria-label='Logo'
+        >
           <h1 className='text-[22px] font-bold'>SHOP.CO</h1>
         </Link>
 
@@ -43,6 +46,7 @@ const Navbar = async () => {
               key={component.title}
               href={component.href}
               className='hover:underline underline-offset-4 transition-all duration-300  '
+              aria-label={component.title}
             >
               {component.title}
             </Link>
@@ -53,7 +57,7 @@ const Navbar = async () => {
 
         <div className='flex flex-row items-center gap-4'>
           <Link
-            aria-label='Koszyk'
+            aria-label='Cart'
             href='/cart'
             className='relative w-fit flex items-center justify-center text-red-500`'
           >
@@ -81,6 +85,7 @@ const Navbar = async () => {
             <Link
               href='/sign-in'
               className='bg-primary text-background hover:bg-primary/80 transition-all duration-200 p-1 rounded-full'
+              aria-label='Sign in'
             >
               <User size={24} />
             </Link>

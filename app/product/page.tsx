@@ -12,7 +12,12 @@ import dataOther from '@/data/other.json'
 const ProductDetail = ({
   searchParams,
 }: {
-  searchParams: Promise<{ id: string; quantity: string, color: string, size: string }>
+  searchParams: Promise<{
+    id: string
+    quantity: string
+    color: string
+    size: string
+  }>
 }) => {
   const { id, quantity, color, size } = use(searchParams)
   const allProducts = [...dataNewArrivals, ...dataTopSelling, ...dataOther]
