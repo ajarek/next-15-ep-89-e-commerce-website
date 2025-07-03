@@ -29,7 +29,7 @@ const SelectName = ({ query }: SearchProps) => {
   }
 
   return (
-    <div className='relative flex items-center'>
+    <div className='relative flex items-center max-sm:hidden'>
       <Input
         type='search'
         name='name'
